@@ -1,0 +1,16 @@
+﻿  TText.cpp
+  TLink.cpp
+d:\vstudio\git\mytext\mytext\tlink.cpp(5): error C2572: TLink::TLink: переопределение параметра по умолчанию: параметр 1
+  d:\vstudio\git\mytext\mytext\tlink.h(12): note:  см. объявление "TLink::TLink"
+d:\vstudio\git\mytext\mytext\tlink.cpp(5): error C2572: TLink::TLink: переопределение параметра по умолчанию: параметр 2
+  d:\vstudio\git\mytext\mytext\tlink.h(12): note:  см. объявление "TLink::TLink"
+d:\vstudio\git\mytext\mytext\tlink.cpp(5): error C2572: TLink::TLink: переопределение параметра по умолчанию: параметр 3
+  d:\vstudio\git\mytext\mytext\tlink.h(12): note:  см. объявление "TLink::TLink"
+d:\vstudio\git\mytext\mytext\tlink.cpp(11): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note:  см. объявление "strcpy"
+  main.cpp
+d:\vstudio\git\mytext\mytext\main.cpp(41): warning C4101: attr: неиспользованная локальная переменная
+d:\vstudio\git\mytext\mytext\main.cpp(70): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note:  см. объявление "fopen"
+d:\vstudio\git\mytext\mytext\main.cpp(66): warning C4101: p: неиспользованная локальная переменная
+  Создание кода...

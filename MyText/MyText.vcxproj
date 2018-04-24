@@ -150,6 +150,7 @@
     <ClInclude Include="TText.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="TLink.cpp" />
     <ClCompile Include="TText.cpp" />
   </ItemGroup>
