@@ -3,9 +3,15 @@
 #include "TLink.h"
 #include <stack>
 #include <fstream>
+#include <iostream>
+#include <Windows.h>
+#define _CRT_SECURE_NO_WARNINGS
+#pragma warning(disable : 4996)
+
 using namespace std;
 
 class TText {
+protected:
 	TLink *pFirst, *pCurr;
 	stack <TLink*> st;
 	int level;
@@ -33,4 +39,6 @@ public:
 	void Reset();
 	bool IsEnd();
 	void GoNext();
+
+	void MarkCurr() { pCurr->flag = true; }
 };
