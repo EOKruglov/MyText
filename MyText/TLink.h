@@ -34,7 +34,7 @@ public:
 	void* operator new(size_t s);
 	void operator delete(void* p);
 	static void InitMem(int s);
-	int PrintFree(TText &t);
+	static int PrintFree(TText &t);
 	static void MemClean(TText &t);
 
 };

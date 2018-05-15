@@ -1,3 +1,9 @@
 ﻿  main.cpp
-d:\vstudio\git\mytext\mytext\main.cpp(45): warning C4101: attr: неиспользованная локальная переменная
-d:\vstudio\git\mytext\mytext\main.cpp(109): error C3867: "std::basic_string<char,std::char_traits<char>,std::allocator<char>>::c_str": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+d:\vstudio\git\mytext\mytext\main.cpp(47): warning C4101: attr: неиспользованная локальная переменная
+  TText.cpp
+  Создание кода...
+d:\vstudio\git\mytext\mytext\main.cpp(22): warning C4715: GetKey: значение возвращается не при всех путях выполнения
+  Пропуск... (изменения не обнаружены)
+  TLink.cpp
+  MyText.vcxproj -> D:\Vstudio\Git\MyText\MyText\Debug\MyText.exe
+  MyText.vcxproj -> D:\Vstudio\Git\MyText\MyText\Debug\MyText.pdb (Full PDB)

@@ -9,6 +9,8 @@
 
 using namespace std;
 
+
+
 int GetKey(){
 	int i = 0;
 	while (i < 256)
@@ -86,26 +88,21 @@ char* To_Char(std::string str)
 void PrintMenu()
 {
 	std::cout
-		<< "0 - print menu\n"
-		<< "dwn_arrow - go next header\n"
-		<< "up_arrow - go prev\n"
-		<< "right_arrow - go inside header\n"
-		<< "1 - new header\n"
-		<< "2 - new body\n"
-		<< "3 - new section\n"
-		<< "4 - delete header\n"
-		<< "5 - delete body\n"
-		<< "6 - save\n"
-		<< "7 - print free mem\n"
-		<< std::endl;
+		<< "\nDown Arrow - Go Next Title\n"
+		<< "Up Arrow - Go Previous\n"
+		<< "Right Arrow - Go Down Line\n"
+		<< "0 - Print Menu\n"
+		<< "1 - New Title\n"
+		<< "2 - New Body\n"
+		<< "3 - New Section\n"
+		<< "4 - Delete Title\n"
+		<< "5 - Delete Body\n"
+		<< "6 - Save\n"
+		<< "7 - Print Free Memory\n"
+		<< endl;
 }
 
 TMem TLink::mem;
-
-istream& operator >> (istream& input, string &s)
-{
-	
-}
 
 void main()
 {
@@ -131,6 +128,7 @@ void main()
 	PrintMenu();
 	text.Read(file);
 	text.Print();
+	
 	gotoxy(0, 0);
 
 	while (true)
@@ -140,20 +138,71 @@ void main()
 		tmp = "";
 		switch (inputKey)
 		{
-		case 48 : 
+		case 38: //uparrow
+			text.GoPrevLink();
+			clrscr();
+			text.Print();
+			break;
+		case 40: //downarrow
+			text.GoNextLink();
+			clrscr();
+			text.Print();
+			break;
+		case 39: //rightarrow
+			text.GoDownLink();
+			clrscr();
+			text.Print();
+			break;
+		case 48 : //0
 			PrintMenu();
 			break;
-		case 49:
+		case 49: //1
 			Sleep(100);
 			clrscr();
-			cout << "Enter header name\n";
-			cin >> tmp;
-			if (tmp == "") tmp = "NewTitle";
+			tmp = "New Title";
 			text.InsNextLine(To_Char(tmp));
 			text.Print();
 			break;
+		case 50: //2
+			Sleep(100);
+			clrscr();
+			tmp = "New Body";
+			text.InsDownLine(To_Char(tmp));
+			text.Print();
+			break;
+		case 51: //3
+			Sleep(100);
+			clrscr();
+			tmp = "New Section";
+			text.InsNextSection(To_Char(tmp));
+			text.Print();
+			break;
+		case 52: //4
+			clrscr();
+			text.DelNext();
+			text.Print();
+			break;
+		case 53: //5
+			clrscr();
+			text.DelDown();
+			text.Print();
+			break;
+		case 54: //6
+			text.Save("D:\\Vstudio\\Git\\MyText\\text.txt");
+			break;
+		case 55: //7
+			clrscr();
+			free = TLink::PrintFree(text);
+			cout << "free mem" << free << endl;
+			text.Print();
+			break;
+		case 56: //8
+			TLink::MemClean(text);
+			break;
 		}
+		Sleep(300);
 	}
+	_getch();
 }
 
 

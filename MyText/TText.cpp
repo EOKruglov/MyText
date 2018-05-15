@@ -100,7 +100,7 @@ TLink* TText::ReadRec(ifstream& file) {
 
 void TText::Read(char *fn) {
 	ifstream ifs(fn);
-	pFirst = ReadRec(ifs);
+	pCurr = pFirst = ReadRec(ifs);
 }
 
 void TText::Print() {
@@ -137,6 +137,7 @@ void TText::SaveText(TLink *tmp, ofstream& f) {
 void TText::Save(char *name) {
 	ofstream ofs(name);
 	SaveText(pFirst, ofs);
+	ofs.close();
 }
 
 void TText::Reset() {
@@ -171,5 +172,6 @@ void TText::GoNext() {
 			st.push(pCurr->pDown);
 	}
 }
+
 
 
