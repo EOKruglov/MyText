@@ -72,8 +72,8 @@ void TText::DelDown() {
 
 
 TLink* TText::ReadRec(ifstream& file) {
-	char buf[80];
 	TLink *tmp, *first = NULL;
+	char buf[80];
 
 	while (!file.eof())
 	{
@@ -82,7 +82,7 @@ TLink* TText::ReadRec(ifstream& file) {
 			break;
 		else
 			if (buf[0] == '{')
-			tmp->pDown = ReadRec(file);
+				tmp->pDown = ReadRec(file);
 			else
 				if (first == NULL)
 				{
@@ -94,13 +94,26 @@ TLink* TText::ReadRec(ifstream& file) {
 					tmp->pNext = new TLink(buf);
 					tmp = tmp->pNext;
 				}
+		/*{
+			TLink *tmp1 = new TLink(buf);
+			tmp->pNext = tmp1;
+			tmp = tmp1;
+		}
+}
+tmp = first;
+if (first->pDown == NULL)
+{
+	first = first->pNext;
+	delete tmp;
+}*/
 	}
 	return first;
 }
 
 void TText::Read(char *fn) {
 	ifstream ifs(fn);
-	pCurr = pFirst = ReadRec(ifs);
+	if(fn)
+		pCurr = pFirst = ReadRec(ifs);
 }
 
 void TText::Print() {
@@ -111,13 +124,23 @@ void TText::Print() {
 void TText::PrintText(TLink *tmp) {
 	if (tmp != NULL)
 	{
-		cout << tmp->str << endl;
+		if (pCurr == tmp)
+			cout << "--> ";
 		for (int i = 0; i < level; i++)
-			cout << "_";
-		level++;
-		PrintText(tmp->pDown);
-		level--;
-		PrintText(tmp->pNext);
+			cout << "    ";
+		cout << tmp->str << endl;
+		/*for (int i = 0; i < level; i++)
+			cout << "_";*/
+		if (tmp->pDown != NULL)
+		{
+			level++;
+			PrintText(tmp->pDown);
+			level--;
+		}
+		if (tmp->pNext != NULL)
+		{
+			PrintText(tmp->pNext);
+		}
 	}
 }
 

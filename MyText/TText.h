@@ -14,7 +14,7 @@ class TText {
 protected:
 	TLink *pFirst, *pCurr;
 	stack <TLink*> st;
-	int level;
+	int level = 0;
 
 public:
 
@@ -41,4 +41,8 @@ public:
 	void GoNext();
 
 	void MarkCurr() { pCurr->flag = true; }
+	TLink* GetCurr()
+	{
+		return pCurr; 
+	}
 };

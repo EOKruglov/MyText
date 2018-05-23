@@ -3,7 +3,8 @@
 #include "TText.h"
 #define _CRT_SECURE_NO_WARNINGS
 #pragma warning(disable : 4996)
-
+class TLink;
+class TText;
 
 
 TLink:: ~TLink(){}
@@ -46,9 +47,11 @@ void TLink::InitMem(int s)
 	TLink *tmp = mem.pFree;
 	for (int i = 0; i < s - 1; i++)
 	{
+		tmp->str[0] = '\0';
 		tmp->pNext = tmp + 1;
 		tmp++;
 	}
+	tmp->str[0] = '\0';
 	mem.pLast->pNext = NULL;
 }
 
@@ -64,7 +67,21 @@ int TLink::PrintFree(TText &t)
 	result++;
 	return result;
 }
+void TLink::PrintFree2()
+{
+	TLink *tmp = mem.pFree;
+	int i = 1;
 
+	while(tmp != NULL)
+	{
+		if (tmp->str != NULL)
+		{
+			cout << i << "  " << tmp->str << endl;
+			tmp = tmp->pNext;
+			i++;
+		}
+	}
+}
 void TLink::MemClean(TText &t)
 {
 	for (t.Reset(); !t.IsEnd(); t.GoNext())
@@ -96,6 +113,22 @@ void TLink::MemClean(TText &t)
 		mem.pFree->pNext = buf;
 	}
 	tmp->flag = false;
+
+	/*for (t.Reset(); !t.IsEnd(); t.GoNext())
+		strcat(t.GetCurr()->str, "-->");
+	TLink *tmp = mem.pFree;
+	while (tmp != NULL)
+	{
+		strcpy(tmp->str, "-->");
+		tmp = tmp->pNext;
+	}
+	tmp = mem.pFirst;
+	while (tmp != mem.pLast)
+	{
+		if (strstr(tmp->str, "-->") == NULL)
+			tmp->str[strlen(tmp->str) - 1] = '\0';
+		tmp++;
+	}*/
 }
 
 

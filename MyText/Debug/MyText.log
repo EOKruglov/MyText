@@ -1,9 +1,3 @@
-﻿  main.cpp
-d:\vstudio\git\mytext\mytext\main.cpp(47): warning C4101: attr: неиспользованная локальная переменная
-  TText.cpp
-  Создание кода...
-d:\vstudio\git\mytext\mytext\main.cpp(22): warning C4715: GetKey: значение возвращается не при всех путях выполнения
-  Пропуск... (изменения не обнаружены)
-  TLink.cpp
-  MyText.vcxproj -> D:\Vstudio\Git\MyText\MyText\Debug\MyText.exe
-  MyText.vcxproj -> D:\Vstudio\Git\MyText\MyText\Debug\MyText.pdb (Full PDB)
+﻿  TLink.cpp
+  MyText.vcxproj -> C:\Users\Эльдорадо\Documents\git\MyText\MyText\Debug\MyText.exe
+  MyText.vcxproj -> C:\Users\Эльдорадо\Documents\git\MyText\MyText\Debug\MyText.pdb (Full PDB)

@@ -92,11 +92,11 @@ void PrintMenu()
 		<< "Up Arrow - Go Previous\n"
 		<< "Right Arrow - Go Down Line\n"
 		<< "0 - Print Menu\n"
-		<< "1 - New Title\n"
-		<< "2 - New Body\n"
+		<< "1 - Next Line\n"
+		<< "2 - Down Line\n"
 		<< "3 - New Section\n"
-		<< "4 - Delete Title\n"
-		<< "5 - Delete Body\n"
+		<< "4 - Delete Next\n"
+		<< "5 - Delete Down\n"
 		<< "6 - Save\n"
 		<< "7 - Print Free Memory\n"
 		<< endl;
@@ -112,7 +112,7 @@ void main()
 	HANDLE hin = GetStdHandle(STD_INPUT_HANDLE);
 
 	TText text;
-	char file[] = "D:\\Vstudio\\Git\\MyText\\text.txt";
+	char file[] = "C:\\Users\\Ёльдорадо\\Documents\\git\\MyText\\text.txt";
 
 	int inputKey;
 	int x = 0, y = 0, free;
@@ -188,13 +188,20 @@ void main()
 			text.Print();
 			break;
 		case 54: //6
-			text.Save("D:\\Vstudio\\Git\\MyText\\text.txt");
+			text.Save("C:\\Users\\Ёльдорадо\\Documents\\git\\MyText\\text.txt");
 			break;
 		case 55: //7
 			clrscr();
 			free = TLink::PrintFree(text);
-			cout << "free mem" << free << endl;
+			
 			text.Print();
+			cout << "free mem " << free << endl;
+			TLink::PrintFree2();
+			TLink::MemClean(text);
+			cout << endl;
+			cout << endl;
+			cout << endl;
+			TLink::PrintFree2();
 			break;
 		case 56: //8
 			TLink::MemClean(text);
